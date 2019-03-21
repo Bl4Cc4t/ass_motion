@@ -1,5 +1,19 @@
 # ass_motion
 
+## ToC
+
+* [I’m 12 and what is this?](#im-12-and-what-is-this)
+* [Why should I use this?](#why-should-i-use-this)
+* [Usage](#usage)
+  * [Options](#options)
+* [Closer look](#closer-look)
+  * [The keyframe directory](#the-keyframe-directory)
+  * [Effect names](#effect-names)
+  * [Tracking options](#tracking-options)
+* [How does this work?](#how-does-this-work)
+* [Building](#building)
+  * [Why is the binary 42MB big lmao](#why-is-the-binary-42mb-big-lmao)
+
 ## I’m 12 and what is this?
 
 *ass_motion* is little tool heavily inspired by [Aegisub-Motion](https://github.com/TypesettingTools/Aegisub-Motion).
@@ -16,7 +30,7 @@ Your .ass can get pretty hard to read if you have multiple parts which need trac
 ass_motion [options] /path/to/subtitle.ass
 ```
 
-### options
+### Options
 
 Option            | Alias | Description
 ------------------|-------|------------
@@ -48,7 +62,7 @@ In your .ass, define the lines you want to have tracked by adding the filename o
 
 Each line that is not a comment and has an existing .txt counterpart will get processed.
 
-#### Tracking options
+### Tracking options
 
 Similar to the options you can select with Motion, you can also select some with ass_motion.
 
@@ -61,6 +75,15 @@ There is currently only one available:
   This is equal to specifying `-1` as the starting point in Motion.
 
 (There may be some other flags added in the future.)
+
+## How does this work?
+
+1. Compilation of the ass into a JavaScript Object using [my fork of ass-compiler](https://github.com/Bl4Cc4t/ass-compiler)
+1. Compilation of the keyframe files
+1. Combining everything with magic
+1. Compiling it back to an actual .ass
+1. ???
+1. Profit
 
 ## Building
 
@@ -81,12 +104,3 @@ You can also leave out the last command which uses [pkg](https://github.com/zeit
 ### Why is the binary 42MB big lmao
 
 The binary contains the actual node framework. It won’t work without it. I’ve searched for ways to compress it but I found none :/
-
-## How does this work?
-
-1. Compilation of the ass into a JavaScript Object using [my fork of ass-compiler](https://github.com/Bl4Cc4t/ass-compiler)
-1. Compilation of the keyframe files
-1. Combining everything with magic
-1. Compiling it back to an actual .ass
-1. ???
-1. Profit
