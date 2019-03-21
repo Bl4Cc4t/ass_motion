@@ -97,7 +97,7 @@ brew tap Bl4Cc4t/other
 brew install ass_motion
 ```
 
-or you
+… or you just use a precompiled binary from [here](/releases)
 
 ## Building
 
