@@ -13,7 +13,7 @@
 * [How does this work?](#how-does-this-work)
 * [Installation](#installation)
 * [Building](#building)
-  * [Why is the binary 42MB big lmao](#why-is-the-binary-42mb-big-lmao)
+  * [Why is the binary so big lmao](#why-is-the-binary-so-big-lmao)
 
 ## I’m 12 and what is this?
 
