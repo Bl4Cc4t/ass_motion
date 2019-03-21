@@ -13,7 +13,7 @@ Options
   --outputSuffix -s    Specify the suffix with which the output should be saved
   --keyframeDir  -k    Specify where to search for the keyframe files
   --keyPrefix    -p    Specify the prefix of to-be-transformed lines
-  --fps          -f    Specify the framerate of the video
+  --fps          -f    Specify the frame rate of the video
 
 Example
   $ ass_motion -o "~/Documents/my_cool_stuff" -p "nge_21" path/to/subtitle/sub.ass`
