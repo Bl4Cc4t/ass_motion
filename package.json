@@ -6,7 +6,10 @@
   "bin": "dist/ass_motion.js",
   "scripts": {
     "build": "npm ddp && npx webpack",
-    "pkg": "node_modules/.bin/pkg . --output bin/ass_motion && chmod +x bin/ass_motion",
+    "pkg-all": "node_modules/.bin/pkg . --output bin/ass_motion && chmod +x bin/ass_motion-macos-x64 bin/ass_motion-linux-x64 bin/ass_motion-linux-x86",
+    "pkg-win": "node_modules/.bin/pkg . -t node10-win-x64 --output bin/ass_motion",
+    "pkg-macos": "node_modules/.bin/pkg . -t node10-macos-x64 --output bin/ass_motion && chmod +x bin/ass_motion",
+    "pkg-linux": "node_modules/.bin/pkg . -t node10-linux-x64 --output bin/ass_motion && chmod +x bin/ass_motion",
     "test": "npm run build && node dist/ass_motion.js test/sub/test.ass"
   },
   "author": "schwarzkatz",
@@ -21,7 +24,11 @@
   },
   "pkg": {
     "targets": [
-      "node10"
+      "node10-win-x64",
+      "node10-win-x86",
+      "node10-macos-x64",
+      "node10-linux-x64",
+      "node10-linux-x86"
     ]
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 # ass_motion
 
-## ToC
+## Content
 
 * [I’m 12 and what is this?](#im-12-and-what-is-this)
 * [Why should I use this?](#why-should-i-use-this)
@@ -11,6 +11,7 @@
   * [Effect names](#effect-names)
   * [Tracking options](#tracking-options)
 * [How does this work?](#how-does-this-work)
+* [Installation](#installation)
 * [Building](#building)
   * [Why is the binary 42MB big lmao](#why-is-the-binary-42mb-big-lmao)
 
@@ -23,6 +24,9 @@ It is capable of applying sets of motion tracking data onto an .ass file via the
 ## Why should I use this?
 
 Your .ass can get pretty hard to read if you have multiple parts which need tracking. Working with such a bloated file can get very challenging for you *and* for your toaster.
+
+However, ass_motion does not replace Motion. The general idea is to use Motion first to confirm it got tracked well, then `ctrl+z` and continue with the rest.
+Once you’re done, you can just run ass_motion which then transforms your 84KB script into a 7.5MB monster ( ͡° ͜ʖ ͡°)
 
 ## Usage
 
@@ -78,12 +82,22 @@ There is currently only one available:
 
 ## How does this work?
 
-1. Compilation of the ass into a JavaScript Object using [my fork of ass-compiler](https://github.com/Bl4Cc4t/ass-compiler)
+1. Compilation of the .ass into a JavaScript Object using [my fork of ass-compiler](https://github.com/Bl4Cc4t/ass-compiler)
 1. Compilation of the keyframe files
 1. Combining everything with magic
 1. Compiling it back to an actual .ass
 1. ???
 1. Profit
+
+## Installation
+
+On macOS, you can use [HomeBrew](https://brew.sh):
+```sh
+brew tap Bl4Cc4t/other
+brew install ass_motion
+```
+
+or you
 
 ## Building
 
@@ -94,13 +108,16 @@ git clone https://github.com/Bl4Cc4t/ass_motion
 cd ass_motion
 npm install
 npm run build
-npm run pkg
+npm run pkg-<platform>
 ```
+
+… with `<platform>` being either `macos`, `win` or `linux`.
+You can also compile the script for other platforms/archs: Take a look at [pkg#targets](https://github.com/zeit/pkg#targets).
 
 The compiled binary will show up in the `bin` folder.
 
 You can also leave out the last command which uses [pkg](https://github.com/zeit/pkg) to create the binary and use `dist/ass_motion.js` instead. If you do, just add `node` in front of every command.
 
-### Why is the binary 42MB big lmao
+### Why is the binary so big lmao
 
 The binary contains the actual node framework. It won’t work without it. I’ve searched for ways to compress it but I found none :/
