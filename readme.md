@@ -2,7 +2,7 @@
 
 ## I’m 12 and what is this?
 
-*ass_motion* is little tool heavily inspired by (Aegisub-Motion)[https://github.com/TypesettingTools/Aegisub-Motion].
+*ass_motion* is little tool heavily inspired by [Aegisub-Motion](https://github.com/TypesettingTools/Aegisub-Motion).
 
 It is capable of applying sets of motion tracking data onto an .ass file via the command line.
 
@@ -76,7 +76,7 @@ npm run pkg
 
 The compiled binary will show up in the `bin` folder.
 
-You can also leave out the last command which uses (pkg)[https://github.com/zeit/pkg] to create the binary and use `dist/ass_motion.js` instead. If you do, just add `node` in front of every command.
+You can also leave out the last command which uses [pkg](https://github.com/zeit/pkg) to create the binary and use `dist/ass_motion.js` instead. If you do, just add `node` in front of every command.
 
 ### Why is the binary 42MB big lmao
 
@@ -84,7 +84,7 @@ The binary contains the actual node framework. It won’t work without it. I’v
 
 ## How does this work?
 
-1. Compilation of the ass into a JavaScript Object using (my fork of ass-compiler)[https://github.com/Bl4Cc4t/ass-compiler]
+1. Compilation of the ass into a JavaScript Object using [my fork of ass-compiler](https://github.com/Bl4Cc4t/ass-compiler)
 1. Compilation of the keyframe files
 1. Combining everything with magic
 1. Compiling it back to an actual .ass
