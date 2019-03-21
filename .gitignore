@@ -1,0 +1,8 @@
+# junk
+.DS_Store
+
+# other
+node_modules/*
+_old/*
+_ref/*
+bin/*

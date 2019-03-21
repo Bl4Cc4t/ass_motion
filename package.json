@@ -1,0 +1,32 @@
+{
+  "name": "ass_motion",
+  "version": "1.1.0",
+  "description": "modify your .ass with tracking data",
+  "main": "src/index.mjs",
+  "bin": "dist/ass_motion.js",
+  "scripts": {
+    "build": "npm ddp && npx webpack",
+    "pkg": "node_modules/.bin/pkg . --output bin/ass_motion && chmod +x bin/ass_motion",
+    "test": "npm run build && node dist/ass_motion.js test/sub/test.ass"
+  },
+  "author": "schwarzkatz",
+  "license": "ISC",
+  "repository": "none",
+  "dependencies": {
+    "ass-compiler": "git://github.com/Bl4Cc4t/ass-compiler.git#66faf5fe737b855bd67cb7b6cce727aa0556a89d",
+    "winston": "^3.2.1",
+    "minimist": "^1.2.0",
+    "underscore": "^1.9.1",
+    "underscore.string": "^3.3.5"
+  },
+  "pkg": {
+    "targets": [
+      "node10"
+    ]
+  },
+  "devDependencies": {
+    "pkg": "^4.3.7",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
