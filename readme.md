@@ -36,12 +36,12 @@ ass_motion [options] /path/to/subtitle.ass
 
 ### Options
 
-Option            | Alias | Description
-------------------|-------|------------
-`--outputDir`     | `-o`  | Specify the output directory
-`--outputSuffix`  | `-s`  | Specify the suffix with which the output should be saved
-`--keyframeDir`   | `-k`  | Specify where to search for the keyframe files
-`--keyPrefix`     | `-p`  | Specify the prefix of to-be-transformed lines
+Option            | Alias | Default     | Description
+------------------|-------|-------------|------------
+`--outputDir`     | `-o`  | `.`         | Specify the output directory
+`--outputSuffix`  | `-s`  | `_tracked`  | Specify the suffix with which the output should be saved
+`--keyframeDir`   | `-k`  | `../mocha/` | Specify where to search for the keyframe files
+`--keyPrefix`     | `-p`  |             | Specify the prefix of to-be-transformed lines
 
 ## Closer look
 
