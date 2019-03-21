@@ -4,7 +4,7 @@ import { logger } from "./logger"
 import { posMath, round2X } from "./math"
 import { fad2fade, frameFromMs, getPosition, msFromFrame, rect2VectClip } from "./util"
 
-export function apply(ass, effect) {
+export function apply(ass, effect, fps) {
   // apply the motion instructions onto the .ass object
 
   let key             = effect.parsed
@@ -17,10 +17,10 @@ export function apply(ass, effect) {
     let line = baseAss.dialogues[nr]
     if (line.effect == effect.raw && !line.isComment) {
       // get times
-      let start = frameFromMs(line.start)
-      let end   = frameFromMs(line.end)
+      let start = frameFromMs(fps, line.start)
+      let end   = frameFromMs(fps, line.end)
       let len   = end-start+1
-      let lenMs = msFromFrame(len)
+      let lenMs = msFromFrame(fps, len)
 
       // check if the inputs are equally long
       if (len == key.info.size) {
@@ -55,8 +55,8 @@ export function apply(ass, effect) {
           let newLine = JSON.parse(JSON.stringify(line))
 
           // set new start/end
-          newLine.start = Math.round(msFromFrame(start) + (msFromFrame(frm-1) + msFromFrame(frm)) / 2)
-          newLine.end   = Math.round(msFromFrame(start) + (msFromFrame(frm) + msFromFrame(frm+1)) / 2)
+          newLine.start = Math.round(msFromFrame(fps, start) + (msFromFrame(fps, frm-1) + msFromFrame(fps, frm)) / 2)
+          newLine.end   = Math.round(msFromFrame(fps, start) + (msFromFrame(fps, frm) + msFromFrame(fps, frm+1)) / 2)
 
           // delete move instruction if applicable
           if (line.move) {
@@ -78,7 +78,7 @@ export function apply(ass, effect) {
               newFade = fad2fade(line.fade, lenMs)
             }
             for (let i = 1; i <= 4; i++) {
-              newFade[`t${i}`] -= msFromFrame(frm)
+              newFade[`t${i}`] -= msFromFrame(fps, frm)
             }
             newLine.fade = newFade
           }
@@ -132,8 +132,8 @@ export function apply(ass, effect) {
             // transforms
             if (frag.tag.t) {
               for (let t of newFrag.tag.t) {
-                t.t1 -= msFromFrame(frm)
-                t.t2 -= msFromFrame(frm)
+                t.t1 -= msFromFrame(fps, frm)
+                t.t2 -= msFromFrame(fps, frm)
               }
             }
             return newFrag

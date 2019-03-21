@@ -42,6 +42,7 @@ Option            | Alias | Default     | Description
 `--outputSuffix`  | `-s`  | `_tracked`  | Specify the suffix with which the output should be saved
 `--keyframeDir`   | `-k`  | `../mocha/` | Specify where to search for the keyframe files
 `--keyPrefix`     | `-p`  |             | Specify the prefix of to-be-transformed lines
+`--fps`           | `-f`  | `23.976`    | Specify the framerate of the video
 
 ## Closer look
 
@@ -91,7 +92,7 @@ There is currently only one available:
 
 ## Installation
 
-On macOS, you can use [HomeBrew](https://brew.sh):
+On macOS, you can use [Homebrew](https://brew.sh):
 ```sh
 brew tap Bl4Cc4t/other
 brew install ass_motion

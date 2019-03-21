@@ -13,6 +13,7 @@ Options
   --outputSuffix -s    Specify the suffix with which the output should be saved
   --keyframeDir  -k    Specify where to search for the keyframe files
   --keyPrefix    -p    Specify the prefix of to-be-transformed lines
+  --fps          -f    Specify the framerate of the video
 
 Example
   $ ass_motion -o "~/Documents/my_cool_stuff" -p "nge_21" path/to/subtitle/sub.ass`
@@ -22,7 +23,8 @@ let args = minimist(process.argv.slice(2), {
     "outputDir",
     "outputSuffix",
     "keyframeDir",
-    "effectPrefix"
+    "effectPrefix",
+    "fps"
   ],
   boolean: [
     "help",
@@ -34,14 +36,15 @@ let args = minimist(process.argv.slice(2), {
     o: "outputDir",
     s: "outputSuffix",
     k: "keyframeDir",
-    e: "effectPrefix"
+    e: "effectPrefix",
+    f: "fps"
   },
   default: {
     outputDir: ".",
     outputSuffix: "_tracked",
     keyframeDir: "../mocha/",
-    effectPrefix: ""
-
+    effectPrefix: "",
+    fps: "23.976"
   }
 })
 

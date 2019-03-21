@@ -69,7 +69,7 @@ export function main(flags) {
         // apply the tracking onto the ass object
         effects.forEach(function(effect) {
           logger.info(`Applying ${effect.name}`)
-          ass = apply(ass, effect)
+          ass = apply(ass, effect, flags.fps)
         })
         if (effects.length) {
           // compile the ass object back and write to file

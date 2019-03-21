@@ -44,14 +44,14 @@ export function getDrawingString(d) {
   return out.slice(1)
 }
 
-export function frameFromMs(ms, fps) {
-  fps = fps || 23.976
+export function frameFromMs(fps, ms) {
+  // fps = fps || 23.976
   return Math.round(ms/(1000/fps))
 }
 
-export function msFromFrame(f, fps) {
+export function msFromFrame(fps, f) {
   f = f > 0 ? f : 0
-  fps = fps || 23.976
+  // fps = fps || 23.976
   return Math.round((1000/fps)*f)
 }
 
